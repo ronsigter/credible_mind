@@ -11,25 +11,7 @@ export const useGetArticles = () => {
     currentPage: 0,
   })
 
-  const listArticles = useCallback(async () => {
-    const index = AlgoliaClient.initIndex('credible_mind')
-
-    try {
-      const articles = await index.search<Article>('')
-      setIndexDetails({
-        totalArticles: articles.nbHits,
-        totalPages: articles.nbPages,
-        currentPage: articles.page,
-      })
-      setArticles(articles?.hits || [])
-    } catch (error) {
-      console.error(error)
-    }
-
-    setLoading(false)
-  }, [])
-
-  const searchResource = async (term: string) => {
+  const searchResource = useCallback(async (term: string) => {
     const index = AlgoliaClient.initIndex('credible_mind')
 
     try {
@@ -45,12 +27,12 @@ export const useGetArticles = () => {
     }
 
     setLoading(false)
-  }
+  }, [])
 
   useEffect(() => {
     setLoading(true)
-    listArticles()
-  }, [listArticles])
+    searchResource('')
+  }, [searchResource])
 
   return {
     loading,

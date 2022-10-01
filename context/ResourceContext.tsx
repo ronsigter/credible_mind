@@ -21,13 +21,10 @@ const ResourceContext = createContext<ResourceContextProps>({
 })
 
 export const ResourceContextProvider: React.FC = ({ children }) => {
-  const { loading, articles, indexDetails, searchResource } = useGetArticles()
+  const articleHook = useGetArticles()
 
   const value = {
-    loading,
-    articles,
-    indexDetails,
-    searchResource,
+    ...articleHook,
   }
 
   return (
