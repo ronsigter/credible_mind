@@ -35,7 +35,19 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({ article }) => {
               <MUILink fontWeight='bold'>{article.name}</MUILink>
             </Link>
           </Box>
-          <Typography>{article.description}</Typography>
+          <Box mb={2}>
+            <Typography
+              sx={{
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                display: '-webkit-box',
+                WebkitLineClamp: '3',
+                WebkitBoxOrient: 'vertical',
+              }}
+            >
+              {article.description}
+            </Typography>
+          </Box>
           <Box display='flex'>
             <Typography>Date</Typography>
             <Typography ml='auto'>Source</Typography>
