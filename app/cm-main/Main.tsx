@@ -1,5 +1,6 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
 import { Field } from 'contentful'
+import { NewsArticles } from './components'
 
 type MainProps = {
   fields: Field[]
@@ -7,7 +8,7 @@ type MainProps = {
 
 export const Main: React.FC<MainProps> = ({ fields }) => (
   <Container>
-    <Box py={2.5} px={8}>
+    <Box py={2.5} px={8} borderBottom='1px solid #afd9ea'>
       <Box>Logo</Box>
     </Box>
     <Box display='flex' py={2}>
@@ -20,13 +21,7 @@ export const Main: React.FC<MainProps> = ({ fields }) => (
           CredibleMind in the News
         </Typography>
       </Box>
-      <Grid container spacing={2}>
-        {Array.from({ length: 3 }).map((_arr, i) => (
-          <Grid item key={`grid-${i}`} xs={4}>
-            <Box>Article</Box>
-          </Grid>
-        ))}
-      </Grid>
+      <NewsArticles />
     </Box>
     <Box display='flex'>
       <Box>Search Box</Box>
