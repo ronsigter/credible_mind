@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from '@mui/material'
-import { ResourceCard } from 'components'
+import { EmptyState, ResourceCard } from 'components'
 import AlgoliaService from 'lib/algoliaService'
 import type { GetServerSideProps, NextPage } from 'next'
 import type { Article } from 'types'
@@ -13,7 +13,7 @@ const News: NextPage<NewsPageProps> = ({ data }) => {
     return (
       <Container>
         <Box py={10}>
-          <Typography>Article not found</Typography>
+          <EmptyState message='Resource not found' />
         </Box>
       </Container>
     )
