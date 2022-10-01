@@ -4,5 +4,5 @@ export type Article = {
   description: string
   image: string
   name: string
-  objectId: string
+  objectID: string
 }

@@ -51,7 +51,7 @@ export const ResourceArticles: React.FC = () => {
       </Box>
       <Box py={3} display='flex' flexDirection='column' gap={2}>
         {articles.map((article) => (
-          <ResourceCard key={article.objectId} article={article} />
+          <ResourceCard key={article.objectID} article={article} />
         ))}
       </Box>
     </Box>

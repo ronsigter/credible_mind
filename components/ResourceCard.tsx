@@ -1,4 +1,12 @@
-import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material'
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Link as MUILink,
+} from '@mui/material'
+import Link from 'next/link'
 import { Article } from 'types'
 
 type ResourceCardProps = {
@@ -22,7 +30,9 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({ article }) => {
           <Typography fontSize='12px'>
             {article.categories.join(' ')}
           </Typography>
-          <Typography fontWeight='bold'>{article.name}</Typography>
+          <Link href={`/news/${article.objectID}`} passHref>
+            <MUILink fontWeight='bold'>{article.name}</MUILink>
+          </Link>
           <Box display='flex'>
             <Typography>Date</Typography>
             <Typography ml='auto'>Source</Typography>
