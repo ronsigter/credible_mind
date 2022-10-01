@@ -1,7 +1,7 @@
 import { Box, CircularProgress, Typography } from '@mui/material'
 import { ResourceCard } from 'components'
 import { useGetArticles } from 'hooks'
-
+import Face6Icon from '@mui/icons-material/Face6'
 export const ResourceArticles: React.FC = () => {
   const { loading, articles, indexDetails } = useGetArticles()
 
@@ -19,6 +19,24 @@ export const ResourceArticles: React.FC = () => {
         <CircularProgress />
         <Typography component='i' fontSize={12}>
           Loading resources...
+        </Typography>
+      </Box>
+    )
+
+  if (articles.length === 0)
+    return (
+      <Box
+        width='100%'
+        display='flex'
+        flexDirection='column'
+        justifyContent='center'
+        alignItems='center'
+        gap={3}
+        py={10}
+      >
+        <Face6Icon transform='scale(3)' />
+        <Typography component='i' fontSize={12}>
+          No resources found
         </Typography>
       </Box>
     )
