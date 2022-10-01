@@ -1,6 +1,12 @@
+import { Field } from 'contentful'
 import { Main } from './Main'
-import type { NextPage } from 'next'
 
-const MainContainer: NextPage = () => <Main />
+type MainContainerProps = {
+  fields: Field[]
+}
+
+const MainContainer: React.FC<MainContainerProps> = ({ fields }) => (
+  <Main fields={fields} />
+)
 
 export default MainContainer

@@ -1,6 +1,11 @@
 import { Box, Container } from '@mui/material'
+import { Field } from 'contentful'
 
-export const Main: React.FC = () => (
+type MainProps = {
+  fields: Field[]
+}
+
+export const Main: React.FC<MainProps> = ({ fields }) => (
   <Container>
     <Box>Main Page</Box>
   </Container>
