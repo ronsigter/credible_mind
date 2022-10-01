@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material'
 import { ResourceCard } from 'components'
-import { InfiniteHits, useInfiniteHits } from 'react-instantsearch-hooks-web'
+import { useInfiniteHits } from 'react-instantsearch-hooks-web'
 import type { Article } from 'types'
 
 export const ResourceArticles: React.FC = () => {
