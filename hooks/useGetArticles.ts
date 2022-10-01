@@ -2,7 +2,14 @@ import { useCallback, useEffect, useState } from 'react'
 import AlgoliaClient from 'lib/algoliaService'
 import type { Article, IndexParams } from 'types'
 
-export const useGetArticles = () => {
+type UseGetArticles = {
+  loading: boolean
+  articles: Article[]
+  indexDetails: IndexParams
+  searchResource: (term: string) => Promise<void>
+}
+
+export const useGetArticles = (): UseGetArticles => {
   const [loading, setLoading] = useState<boolean>(false)
   const [articles, setArticles] = useState<Article[]>([])
   const [indexDetails, setIndexDetails] = useState<IndexParams>({
@@ -11,7 +18,7 @@ export const useGetArticles = () => {
     currentPage: 0,
   })
 
-  const searchResource = useCallback(async (term: string) => {
+  const searchResource = useCallback(async (term: string): Promise<void> => {
     const index = AlgoliaClient.initIndex('credible_mind')
 
     try {
