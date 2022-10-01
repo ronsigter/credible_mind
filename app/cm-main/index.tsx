@@ -1,4 +1,5 @@
 import { Field } from 'contentful'
+import { Dashboard } from 'layout'
 import { Main } from './Main'
 
 type MainContainerProps = {
@@ -6,7 +7,9 @@ type MainContainerProps = {
 }
 
 const MainContainer: React.FC<MainContainerProps> = ({ fields }) => (
-  <Main fields={fields} />
+  <Dashboard>
+    <Main fields={fields} />
+  </Dashboard>
 )
 
 export default MainContainer
