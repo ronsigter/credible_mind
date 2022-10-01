@@ -1,6 +1,6 @@
 import Main from 'app/cm-main'
 import { ContentContextProvider } from 'context'
-import ContentfulClient from 'lib/contentfulService'
+import { getNewsConfigContent } from 'helpers'
 import type { GetServerSideProps, NextPage } from 'next'
 import type { NewsConfig } from 'types'
 
@@ -17,13 +17,8 @@ const MainPage: NextPage<MainPageProps> = ({ fields }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (_context) => {
-  const entries = (await ContentfulClient.getEntries({
-    content_type: 'newsConfig',
-  })) as any
-  const fields = entries.items[0].fields
-  const LogoURL = entries.items[0].fields?.['logo']?.fields?.file?.url || ''
-
-  return { props: { fields: { ...fields, logo: LogoURL } } }
+  const fields = await getNewsConfigContent()
+  return { props: { fields } }
 }
 
 export default MainPage

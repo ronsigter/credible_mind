@@ -1,9 +1,9 @@
 import { Box, Container, Link as MUILink } from '@mui/material'
 import { EmptyState, ResourceCard } from 'components'
 import { ContentContextProvider } from 'context'
+import { getNewsConfigContent } from 'helpers'
 import { Dashboard } from 'layout'
 import AlgoliaService from 'lib/algoliaService'
-import ContentfulClient from 'lib/contentfulService'
 import type { GetServerSideProps, NextPage } from 'next'
 import Link from 'next/link'
 import type { Article, NewsConfig } from 'types'
@@ -46,11 +46,7 @@ const News: NextPage<NewsPageProps> = ({ data, fields }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const entries = (await ContentfulClient.getEntries({
-    content_type: 'newsConfig',
-  })) as any
-  const fields = entries.items[0].fields
-  const LogoURL = entries.items[0].fields?.['logo']?.fields?.file?.url || ''
+  const fields = await getNewsConfigContent()
 
   const index = AlgoliaService.initIndex('dev_news')
   const slug = query.slug as string
@@ -63,7 +59,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     console.log(error)
   }
 
-  return { props: { data: article, fields: { ...fields, logo: LogoURL } } }
+  return { props: { data: article, fields } }
 }
 
 export default News
