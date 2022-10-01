@@ -33,13 +33,13 @@ const News: NextPage<NewsPageProps> = ({ data }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const index = AlgoliaService.initIndex('credible_mind')
-  const objectId = query.slug as string
+  const index = AlgoliaService.initIndex('dev_news')
+  const slug = query.slug as string
 
   let article: Article | null = null
 
   try {
-    article = await (index as any)?.getObject(objectId)
+    article = await (index as any)?.getObject(slug)
   } catch (error) {
     console.log(error)
   }

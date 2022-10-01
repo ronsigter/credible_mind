@@ -19,10 +19,11 @@ export const useGetArticles = (): UseGetArticles => {
   })
 
   const searchResource = useCallback(async (term: string): Promise<void> => {
-    const index = AlgoliaClient.initIndex('credible_mind')
+    const index = AlgoliaClient.initIndex('dev_news')
 
     try {
       const articles = await index.search<Article>(term)
+      console.log(articles)
       setIndexDetails({
         totalArticles: articles.nbHits,
         totalPages: articles.nbPages,

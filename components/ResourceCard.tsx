@@ -18,7 +18,7 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({ article }) => {
     <Card sx={{ display: 'flex' }}>
       <CardMedia
         component='img'
-        image={article.image}
+        image={article.imageUrl}
         sx={{
           objectFit: 'scale-down',
           height: '200px',
@@ -27,12 +27,14 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({ article }) => {
       />
       <Box flex='1'>
         <CardContent>
+          <Box></Box>
           <Typography fontSize='12px'>
-            {article.categories.join(' ')}
+            {article?.topics?.map(({ title }) => title).join(', ')}
           </Typography>
+
           <Box mb={2}>
             <Link href={`/news/${article.objectID}`} passHref>
-              <MUILink fontWeight='bold'>{article.name}</MUILink>
+              <MUILink fontWeight='bold'>{article?.name || '---'}</MUILink>
             </Link>
           </Box>
           <Box mb={2}>
@@ -45,12 +47,14 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({ article }) => {
                 WebkitBoxOrient: 'vertical',
               }}
             >
-              {article.description}
+              {article?.description || '---'}
             </Typography>
           </Box>
           <Box display='flex'>
-            <Typography>Date</Typography>
-            <Typography ml='auto'>Source</Typography>
+            <Typography>{article?.publicationDate || '---'}</Typography>
+            <Typography ml='auto'>
+              {article?.organization?.[0]?.fields?.name || '---'}
+            </Typography>
           </Box>
         </CardContent>
       </Box>
