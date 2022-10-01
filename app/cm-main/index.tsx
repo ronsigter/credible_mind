@@ -1,4 +1,3 @@
-import { Field } from 'contentful'
 import { Dashboard } from 'layout'
 import { Main } from './Main'
 

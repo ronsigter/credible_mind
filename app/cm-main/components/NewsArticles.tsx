@@ -1,12 +1,15 @@
 import { Box, Grid } from '@mui/material'
 import { NewsCard } from 'components'
+import { useGetArticles } from 'hooks'
 
 export const NewsArticles: React.FC = () => {
+  const { loading, articles } = useGetArticles()
+
   return (
     <Grid container spacing={2}>
-      {Array.from({ length: 3 }).map((_arr, i) => (
-        <Grid item key={`grid-${i}`} xs={4}>
-          <NewsCard />
+      {articles.slice(0, 3).map((article) => (
+        <Grid item key={article.objectID} xs={4}>
+          <NewsCard article={article} />
         </Grid>
       ))}
     </Grid>
