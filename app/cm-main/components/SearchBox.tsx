@@ -18,7 +18,7 @@ export const SearchBox: React.FC = () => {
 
   return (
     <Box border='1px solid #afd9ea' p={2} position='sticky' top='1rem'>
-      <Typography>{searchLabel}</Typography>
+      <Typography mb={2}>{searchLabel}</Typography>
       <Box display='flex' alignItems='center'>
         <TextField
           variant='outlined'
