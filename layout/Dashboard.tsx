@@ -19,11 +19,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ children }) => {
         <Box>{menuLabel}</Box>
         <Box ml='auto'>Drop Down</Box>
       </Box>
-      <Box
-        borderBottom='1px solid #afd9ea'
-        borderTop='1px solid #afd9ea'
-        pb={3}
-      >
+      <Box borderBottom='1px solid #afd9ea' borderTop='1px solid #afd9ea'>
         <Box display='flex' justifyContent='center' py={8}>
           <Typography fontWeight='bold' fontSize={32}>
             {ttile}

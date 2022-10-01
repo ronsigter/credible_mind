@@ -4,7 +4,7 @@ import { NewsArticles, SearchBox } from './components'
 import { ResourceArticles } from './components/ResourceArticles'
 
 export const Main: React.FC = () => (
-  <Box>
+  <Box py={3}>
     <NewsArticles />
     <Box display='flex' py={3}>
       <ResourceContextProvider>

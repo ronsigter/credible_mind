@@ -6,6 +6,7 @@ import {
   Typography,
   Link as MUILink,
 } from '@mui/material'
+import { readableDate } from 'helpers'
 import Link from 'next/link'
 import { Article } from 'types'
 
@@ -28,13 +29,19 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({ article }) => {
       <Box flex='1'>
         <CardContent>
           <Box></Box>
-          <Typography fontSize='12px'>
+          <Typography fontSize='12px' mb={1} color='blue'>
             {article?.topics?.map(({ title }) => title).join(', ')}
           </Typography>
-
           <Box mb={2}>
             <Link href={`/news/${article.objectID}`} passHref>
-              <MUILink fontWeight='bold'>{article?.name || '---'}</MUILink>
+              <MUILink
+                fontWeight='bold'
+                underline='none'
+                color='black'
+                fontSize='1.5rem'
+              >
+                {article?.name || '---'}
+              </MUILink>
             </Link>
           </Box>
           <Box mb={2}>
@@ -50,9 +57,11 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({ article }) => {
               {article?.description || '---'}
             </Typography>
           </Box>
-          <Box display='flex'>
-            <Typography>{article?.publicationDate || '---'}</Typography>
-            <Typography ml='auto'>
+          <Box display='flex' gap={4}>
+            <Typography fontSize='12px'>
+              {readableDate(article?.publicationDate)}
+            </Typography>
+            <Typography fontSize='12px' color='blue'>
               {article?.organization?.[0]?.fields?.name || '---'}
             </Typography>
           </Box>
