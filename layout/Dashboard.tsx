@@ -1,4 +1,5 @@
 import { Box, Container, Typography } from '@mui/material'
+import { AvatartDropdown } from 'components'
 import { useContentContext } from 'context'
 
 type DashboardProps = {
@@ -15,9 +16,11 @@ export const Dashboard: React.FC<DashboardProps> = ({ children }) => {
           <img src={logo} alt='logo' />
         </Box>
       </Box>
-      <Box display='flex' py={2}>
+      <Box display='flex' py={1} alignItems='center'>
         <Box>{menuLabel}</Box>
-        <Box ml='auto'>Drop Down</Box>
+        <Box ml='auto'>
+          <AvatartDropdown />
+        </Box>
       </Box>
       <Box borderBottom='1px solid #afd9ea' borderTop='1px solid #afd9ea'>
         <Box display='flex' justifyContent='center' py={8}>
