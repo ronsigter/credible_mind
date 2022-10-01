@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
 import { Field } from 'contentful'
 import { NewsArticles, SearchBox } from './components'
+import { ResourceArticles } from './components/ResourceArticles'
 
 type MainProps = {
   fields: Field[]
@@ -27,7 +28,9 @@ export const Main: React.FC<MainProps> = ({ fields }) => (
       <Box p={2} border='1px solid #afd9ea'>
         <SearchBox />
       </Box>
-      <Box>Resources</Box>
+      <Box width='100%'>
+        <ResourceArticles />
+      </Box>
     </Box>
   </Container>
 )
