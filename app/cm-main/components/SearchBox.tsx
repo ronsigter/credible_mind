@@ -1,4 +1,4 @@
-import { Box, IconButton, TextField, Typography } from '@mui/material'
+import { Box, Button, IconButton, TextField, Typography } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 import { useResourceContext } from 'context'
 import { useState } from 'react'
@@ -18,15 +18,23 @@ export const SearchBox: React.FC = () => {
         <TextField
           variant='outlined'
           onChange={(e) => setTerm(e.target.value)}
+          size='small'
         />
-        <IconButton
-          color='primary'
-          aria-label='search'
-          component='label'
-          onClick={handleOnSearch}
+        <Button
+          sx={{
+            backgroundColor: '#01619b',
+            minWidth: 0,
+            '&:hover': {
+              backgroundColor: '#01619b',
+            },
+          }}
         >
-          <SearchIcon />
-        </IconButton>
+          <SearchIcon
+            sx={{
+              color: 'white',
+            }}
+          />
+        </Button>
       </Box>
     </Box>
   )
