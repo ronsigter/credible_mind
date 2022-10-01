@@ -1,9 +1,10 @@
 import { Box, CircularProgress, Typography } from '@mui/material'
 import { ResourceCard } from 'components'
-import { useGetArticles } from 'hooks'
 import Face6Icon from '@mui/icons-material/Face6'
+import { useResourceContext } from 'context'
+
 export const ResourceArticles: React.FC = () => {
-  const { loading, articles, indexDetails } = useGetArticles()
+  const { loading, articles, indexDetails } = useResourceContext()
 
   if (loading)
     return (

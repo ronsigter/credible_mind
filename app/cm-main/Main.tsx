@@ -1,5 +1,6 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
 import { Field } from 'contentful'
+import { ResourceContextProvider } from 'context'
 import { NewsArticles, SearchBox } from './components'
 import { ResourceArticles } from './components/ResourceArticles'
 
@@ -25,12 +26,14 @@ export const Main: React.FC<MainProps> = ({ fields }) => (
       <NewsArticles />
     </Box>
     <Box display='flex' py={3}>
-      <Box>
-        <SearchBox />
-      </Box>
-      <Box flex='1'>
-        <ResourceArticles />
-      </Box>
+      <ResourceContextProvider>
+        <Box>
+          <SearchBox />
+        </Box>
+        <Box flex='1'>
+          <ResourceArticles />
+        </Box>
+      </ResourceContextProvider>
     </Box>
   </Container>
 )

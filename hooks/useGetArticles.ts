@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from 'react'
 import AlgoliaClient from 'lib/algoliaService'
-import type { Article } from 'types'
+import type { Article, IndexParams } from 'types'
 
 export const useGetArticles = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const [articles, setArticles] = useState<Article[]>([])
-  const [indexDetails, setIndexDetails] = useState<any>({
+  const [indexDetails, setIndexDetails] = useState<IndexParams>({
     totalArticles: 0,
-    totalPagels: 0,
+    totalPages: 0,
     currentPage: 0,
   })
 
