@@ -1,6 +1,10 @@
 # Live Demo
 
+Using `useContext`
 https://credible-mind.vercel.app/
+
+Using `instantSearch` (with infinite scrolling)
+https://credible-mind-git-instantsearch-ronsigter.vercel.app/
 
 # CredibleMind Coding test
 
