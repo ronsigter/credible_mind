@@ -4,17 +4,22 @@ import { NewsArticles, SearchBox } from './components'
 import { ResourceArticles } from './components/ResourceArticles'
 
 export const Main: React.FC = () => (
-  <AlgoliaSearch>
-    <Box py={3}>
+  <Box>
+    <AlgoliaSearch>
       <NewsArticles />
-      <Box display='flex' py={3}>
-        <Box>
-          <SearchBox />
-        </Box>
-        <Box flex='1'>
-          <ResourceArticles />
+    </AlgoliaSearch>
+
+    <AlgoliaSearch>
+      <Box py={3}>
+        <Box display='flex' py={3}>
+          <Box>
+            <SearchBox />
+          </Box>
+          <Box flex='1'>
+            <ResourceArticles />
+          </Box>
         </Box>
       </Box>
-    </Box>
-  </AlgoliaSearch>
+    </AlgoliaSearch>
+  </Box>
 )
