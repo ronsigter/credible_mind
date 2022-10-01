@@ -30,9 +30,12 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({ article }) => {
           <Typography fontSize='12px'>
             {article.categories.join(' ')}
           </Typography>
-          <Link href={`/news/${article.objectID}`} passHref>
-            <MUILink fontWeight='bold'>{article.name}</MUILink>
-          </Link>
+          <Box mb={2}>
+            <Link href={`/news/${article.objectID}`} passHref>
+              <MUILink fontWeight='bold'>{article.name}</MUILink>
+            </Link>
+          </Box>
+          <Typography>{article.description}</Typography>
           <Box display='flex'>
             <Typography>Date</Typography>
             <Typography ml='auto'>Source</Typography>

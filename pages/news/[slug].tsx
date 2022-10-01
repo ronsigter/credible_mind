@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   let article: Article | null = null
 
   try {
-    article = await index.getObject(objectId)
+    article = await (index as any)?.getObject(objectId)
   } catch (error) {
     console.log(error)
   }
