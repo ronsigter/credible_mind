@@ -1,11 +1,8 @@
-import { Box, Button, IconButton, TextField, Typography } from '@mui/material'
+import { Box, Button, TextField, Typography } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 import { useContentContext } from 'context'
 import { useState } from 'react'
-import {
-  SearchBox as Search,
-  useSearchBox,
-} from 'react-instantsearch-hooks-web'
+import { useSearchBox } from 'react-instantsearch-hooks-web'
 
 export const SearchBox: React.FC = () => {
   const { refine } = useSearchBox()
