@@ -1,9 +1,13 @@
-import { createClient } from "contentful";
+import { createClient } from 'contentful'
+
+const SPACE = process.env.CONTENTFUL_SPACE || ''
+const TOKEN = process.env.CONTENTFUL_TOKEN || ''
+const HOST = process.env.CONTENTFUL_HOST || ''
 
 const client = createClient({
-  space: "x0aigtiomhhn",
-  accessToken: "HoK3JaEhoUdiL2xUx6bKCfyhwHmn-FJ6HLavstAUPZY",
-  host: "cdn.contentful.com",
-});
+  space: SPACE,
+  accessToken: TOKEN,
+  host: HOST,
+})
 
-export default client;
+export default client
