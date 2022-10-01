@@ -23,7 +23,6 @@ export const useGetArticles = (): UseGetArticles => {
 
     try {
       const articles = await index.search<Article>(term)
-      console.log(articles)
       setIndexDetails({
         totalArticles: articles.nbHits,
         totalPages: articles.nbPages,
