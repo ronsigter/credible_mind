@@ -6,6 +6,7 @@ type ResourceContextProps = {
   loading: boolean
   articles: Article[]
   indexDetails: IndexParams
+  searchResource: (term: string) => void
 }
 
 const ResourceContext = createContext<ResourceContextProps>({
@@ -16,19 +17,18 @@ const ResourceContext = createContext<ResourceContextProps>({
     totalArticles: 0,
     totalPages: 0,
   },
+  searchResource: () => {},
 })
 
 export const ResourceContextProvider: React.FC = ({ children }) => {
-  const { loading, articles, indexDetails } = useGetArticles()
+  const { loading, articles, indexDetails, searchResource } = useGetArticles()
 
-  const value = useMemo(
-    () => ({
-      loading,
-      articles,
-      indexDetails,
-    }),
-    [loading, articles, indexDetails]
-  )
+  const value = {
+    loading,
+    articles,
+    indexDetails,
+    searchResource,
+  }
 
   return (
     <ResourceContext.Provider value={value}>
