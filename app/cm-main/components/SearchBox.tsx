@@ -21,6 +21,7 @@ export const SearchBox: React.FC = () => {
           size='small'
         />
         <Button
+          onClick={handleOnSearch}
           sx={{
             backgroundColor: '#01619b',
             minWidth: 0,
