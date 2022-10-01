@@ -1,9 +1,27 @@
-import { Box, Typography } from '@mui/material'
+import { Box, CircularProgress, Typography } from '@mui/material'
 import { ResourceCard } from 'components'
 import { useGetArticles } from 'hooks'
 
 export const ResourceArticles: React.FC = () => {
   const { loading, articles, indexDetails } = useGetArticles()
+
+  if (loading)
+    return (
+      <Box
+        width='100%'
+        display='flex'
+        flexDirection='column'
+        justifyContent='center'
+        alignItems='center'
+        gap={3}
+        py={10}
+      >
+        <CircularProgress />
+        <Typography component='i' fontSize={12}>
+          Loading resources...
+        </Typography>
+      </Box>
+    )
 
   return (
     <Box px={4} width='100%'>
