@@ -1,13 +1,14 @@
-import { Box, Grid } from '@mui/material'
+import { Grid } from '@mui/material'
 import { NewsCard } from 'components'
-import { useGetArticles } from 'hooks'
+import { useHits } from 'react-instantsearch-hooks-web'
+import type { Article } from 'types'
 
 export const NewsArticles: React.FC = () => {
-  const { loading, articles } = useGetArticles()
+  const { hits } = useHits<Article>()
 
   return (
     <Grid container spacing={2}>
-      {articles.slice(0, 3).map((article) => (
+      {hits.slice(0, 3).map((article) => (
         <Grid item key={article.objectID} xs={4}>
           <NewsCard article={article} />
         </Grid>
