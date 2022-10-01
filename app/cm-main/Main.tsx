@@ -1,14 +1,9 @@
 import { Box } from '@mui/material'
-import { Field } from 'contentful'
 import { ResourceContextProvider } from 'context'
 import { NewsArticles, SearchBox } from './components'
 import { ResourceArticles } from './components/ResourceArticles'
 
-type MainProps = {
-  fields: Field[]
-}
-
-export const Main: React.FC<MainProps> = ({ fields }) => (
+export const Main: React.FC = () => (
   <Box>
     <NewsArticles />
     <Box display='flex' py={3}>

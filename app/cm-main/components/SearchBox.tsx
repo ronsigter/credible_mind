@@ -1,10 +1,11 @@
 import { Box, Button, IconButton, TextField, Typography } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
-import { useResourceContext } from 'context'
+import { useContentContext, useResourceContext } from 'context'
 import { useState } from 'react'
 
 export const SearchBox: React.FC = () => {
   const { searchResource } = useResourceContext()
+  const { searchLabel } = useContentContext()
   const [term, setTerm] = useState<string>('')
 
   const handleOnSearch = () => {
@@ -13,7 +14,7 @@ export const SearchBox: React.FC = () => {
 
   return (
     <Box border='1px solid #afd9ea' p={2} position='sticky' top='1rem'>
-      <Typography>Filter &amp; Refine</Typography>
+      <Typography>{searchLabel}</Typography>
       <Box display='flex' alignItems='center'>
         <TextField
           variant='outlined'
