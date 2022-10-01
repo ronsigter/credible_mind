@@ -1,10 +1,10 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import { ResourceCard } from 'components'
-import { useHits } from 'react-instantsearch-hooks-web'
+import { InfiniteHits, useInfiniteHits } from 'react-instantsearch-hooks-web'
 import type { Article } from 'types'
 
 export const ResourceArticles: React.FC = () => {
-  const { hits, results } = useHits<Article>()
+  const { hits, results, showMore } = useInfiniteHits<Article>()
 
   return (
     <Box px={4} width='100%'>
@@ -17,6 +17,7 @@ export const ResourceArticles: React.FC = () => {
         {hits.map((article) => (
           <ResourceCard key={article.objectID} article={article} />
         ))}
+        <Button onClick={showMore}>Show More</Button>
       </Box>
     </Box>
   )
