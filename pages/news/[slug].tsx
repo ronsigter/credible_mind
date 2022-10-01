@@ -1,15 +1,25 @@
+import { ResourceCard } from 'components'
 import AlgoliaService from 'lib/algoliaService'
-import type { GetServerSideProps } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
+import type { Article } from 'types'
 
-const News = () => {
-  return <>News page</>
+type NewsPageProps = {
+  data: {
+    article: Article | undefined
+  }
+}
+
+const News: NextPage<NewsPageProps> = ({ data }) => {
+  if (data.article) return <>Article not found</>
+
+  return <ResourceCard article={data.article as unknown as Article} />
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const index = AlgoliaService.initIndex('credible_mind')
   const objectId = query.slug as string
 
-  let article = {}
+  let article: Article | undefined = undefined
 
   try {
     article = await index.getObject(objectId)
