@@ -5,7 +5,7 @@ const ContentContext = createContext<NewsConfig>({
   logo: '',
   menuLabel: '',
   searchLabel: '',
-  title: '',
+  ttile: '',
 })
 
 type ContentContextProviderProps = {
