@@ -25,10 +25,10 @@ export const Main: React.FC<MainProps> = ({ fields }) => (
       <NewsArticles />
     </Box>
     <Box display='flex' py={3}>
-      <Box p={2} border='1px solid #afd9ea'>
+      <Box>
         <SearchBox />
       </Box>
-      <Box width='100%'>
+      <Box flex='1'>
         <ResourceArticles />
       </Box>
     </Box>
