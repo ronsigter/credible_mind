@@ -1,1 +1,1 @@
-export * from './useGetArticles'
+export * from './useObserver'

@@ -1,20 +1,25 @@
 import { Box } from '@mui/material'
-import { ResourceContextProvider } from 'context'
+import { AlgoliaSearch } from 'context'
 import { NewsArticles, SearchBox } from './components'
 import { ResourceArticles } from './components/ResourceArticles'
 
 export const Main: React.FC = () => (
-  <Box py={3}>
-    <NewsArticles />
-    <Box display='flex' py={3}>
-      <ResourceContextProvider>
-        <Box>
-          <SearchBox />
+  <Box>
+    <AlgoliaSearch>
+      <NewsArticles />
+    </AlgoliaSearch>
+
+    <AlgoliaSearch>
+      <Box py={3}>
+        <Box display='flex' py={3}>
+          <Box>
+            <SearchBox />
+          </Box>
+          <Box flex='1'>
+            <ResourceArticles />
+          </Box>
         </Box>
-        <Box flex='1'>
-          <ResourceArticles />
-        </Box>
-      </ResourceContextProvider>
-    </Box>
+      </Box>
+    </AlgoliaSearch>
   </Box>
 )

@@ -1,20 +1,21 @@
-import { Box, Button, IconButton, TextField, Typography } from '@mui/material'
+import { Box, Button, TextField, Typography } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
-import { useContentContext, useResourceContext } from 'context'
+import { useContentContext } from 'context'
 import { useState } from 'react'
+import { useSearchBox } from 'react-instantsearch-hooks-web'
 
 export const SearchBox: React.FC = () => {
-  const { searchResource } = useResourceContext()
+  const { refine } = useSearchBox()
   const { searchLabel } = useContentContext()
   const [term, setTerm] = useState<string>('')
 
   const handleOnSearch = () => {
-    searchResource(term)
+    refine(term)
   }
 
   return (
     <Box border='1px solid #afd9ea' p={2} position='sticky' top='1rem'>
-      <Typography>{searchLabel}</Typography>
+      <Typography mb={2}>{searchLabel}</Typography>
       <Box display='flex' alignItems='center'>
         <TextField
           variant='outlined'
